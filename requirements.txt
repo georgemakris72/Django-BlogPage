@@ -1,4 +1,4 @@
-anaconda-client==1.6.3
+
 appnope==0.1.0
 astroid==1.5.3
 betterpath==0.2.2
