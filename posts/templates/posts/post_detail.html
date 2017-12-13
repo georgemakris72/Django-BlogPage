@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>George's Blog</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#my-navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+          <a class="navbar-brand" href="{% url 'home' %}">
+           <p>George's Blog</p>
+          </a>
+        </div>
+        <div class="collapse navbar-collapse" id="my-navbar">
+      <ul class="nav navbar-nav">
+      <li><a href="{% url 'about' %}">About</a></li>
+      <li><a href="https://www.linkedin.com/in/george-makris/" target="_blank">LinkedIn</a></li>
+      <li><a href="https://github.com/georgemakris72" target="_blank">Github</a></li>
+      </ul>
+    </div>
+      </div>
+    </nav>
+
+<div class="container">
+
+
+<a href='#' style='text-decoration:none'><p><h1>{{ post.title }}</h1></a><br>
+  <!-- {{ post.pub_date_pretty}}<br> Use this to use our function in models that gets rid of time. I prefer it with time though so I am using below. -->
+  <!-- Update:I changed pretty method so that it would display time with seconds so now using that method now. -->
+  {{ post.pub_date_pretty}}<br>
+  <img src="{{ post.image.url }}" class="img-responsive center-block" style='max-height:250px'/><br>
+  {{ post.body }}</p>
+
+  <div id="disqus_thread"></div>
+  <script>
+
+  /**
+  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+  var disqus_config = function () {
+  // this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+  // this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+  this.page.identifier='post-{{ post.id }}';
+  };
+
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+  s.src = 'https://georgesblog-1.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+</div>
+<!-- //  jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- // Include all compiled plugins (below), or include individual files as needed -->
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+  </body>
+</html>
